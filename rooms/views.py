@@ -35,9 +35,10 @@ def search(request):
     bedrooms = int(request.GET.get("bedrooms", 0))
     beds = int(request.GET.get("beds", 0))
     baths = int(request.GET.get("baths", 0))
-    selected_amenities = request.GET.get("amenities")
-    selected_facilities = request.GET.get("facilities")
-    print(selected_facilities, selected_amenities)
+    instant = request.GET.get("instant", False)
+    super_host = request.GET.get("super_host", False)
+    selected_amenities = request.GET.getlist("amenities")
+    selected_facilities = request.GET.getlist("facilities")
     form = {
         "city": city,
         "selected_country": country,
@@ -47,6 +48,10 @@ def search(request):
         "bedrooms": bedrooms,
         "beds": beds,
         "baths": baths,
+        "selected_amenities": selected_amenities,
+        "selected_facilities": selected_facilities,
+        "instant": instant,
+        "super_host": super_host,
     }
 
     room_types = models.RoomType.objects.all()
