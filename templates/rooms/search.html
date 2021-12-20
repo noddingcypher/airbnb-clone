@@ -58,6 +58,56 @@
                 {% endfor %}
             </select>
         </div>
+
+        <div>
+            <label for="price">Price</label>
+            <input value="{{price}}" type="number" name="price" id="price" placeholder="Price" />
+        </div>
+
+        <div>
+            <label for="guests">Guests</label>
+            <input value="{{guests}}" type="number" name="guests" id="guests" placeholder="Guests" />
+        </div>
+
+        <div>
+            <label for="bedrooms">Bedrooms</label>
+            <input value="{{bedrooms}}" type="number" name="bedrooms" id="bedrooms" placeholder="Bedrooms" />
+        </div>
+        <div>
+            <label for="beds">Beds</label>
+            <input value="{{beds}}" type="number" name="beds" id="beds" placeholder="Beds" />
+        </div>
+        <div>
+            <label for="baths">Baths</label>
+            <input value="{{baths}}" type="number" name="baths" id="baths" placeholder="Baths" />
+        </div>
+        <div>
+            <h3>Amenities</h3>
+            <ul>
+                {% for a in amenities %}
+                    <li>
+                        <label for="a_{{a.pk}}">{{a.name}}</label>
+                        <input id ="a_{{a.pk}}" name ="amenities" type = "checkbox" value = "{{a.pk}}" />
+                    </li>
+                    
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div>
+            <h3>Facilities</h3>
+            <ul>
+                {% for f in facilities %}
+                <li>
+                    <label for="f_{{f.pk}}">{{f.name}}</label>
+                    <input id="f_{{f.pk}}" name="facilities" type="checkbox" value = "{{f.pk}}"/>
+                </li>
+        
+                {% endfor %}
+        
+            </ul>
+        </div>
+        
         <button>Search</button>
     </form>
 
